@@ -1,0 +1,20 @@
+name: 'Download latest artifact' 
+description: 'Downloads latest uploaded artifact'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  repository:
+    required: true
+    description: 'Repository name'
+  artifact_name:
+    description: 'Name of the artifact to search'
+  path:
+    description: 'Path where to extract artifact to'
+
+runs:
+  using: node20
+  main: dist/index.js

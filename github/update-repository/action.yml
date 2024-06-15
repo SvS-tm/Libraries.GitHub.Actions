@@ -1,0 +1,28 @@
+name: 'Update repository' 
+description: 'Updates repository with GitHub REST API'
+inputs:
+  repository:
+    required: true
+    description: 'The name of the repository without the .git extension. The name is not case sensitive.'
+  owner:
+    required: true
+    description: 'The account owner of the repository. The name is not case sensitive.'
+  token:
+    required: true
+    description: 'GitHub token'
+
+  name:
+    description: 'The name of the repository.'
+  description:
+    description: 'A short description of the repository.'
+  delete_branch_on_merge:
+    description: |
+      Either true to allow automatically deleting head branches 
+      when pull requests are merged, or false to prevent automatic deletion.
+  allow_auto_merge:
+    description: |
+      Either true to allow auto-merge on pull requests, or false to disallow auto-merge.
+  
+runs:
+  using: node20
+  main: dist/index.js

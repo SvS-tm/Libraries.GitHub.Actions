@@ -1,0 +1,9 @@
+name: test
+description: 'pnpm test'
+runs:
+  using: composite
+  steps:
+  - name: test
+    shell: bash
+    run: |
+      pnpm test

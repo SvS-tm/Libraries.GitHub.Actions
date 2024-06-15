@@ -1,0 +1,32 @@
+name: 'Upload release asset' 
+description: 'Uploads new asset to existing release'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  release_id:
+    required: true
+    description: 'The unique identifier of the release.'
+  name:
+    required: true
+    description: 'Name of the asset'
+  path:
+    required: true
+    description: 'Path to the asset file'
+  label:
+    description: 'Label of the asset'
+
+outputs:
+  id:
+    description: 'The id of created asset'
+  url:
+    description: 'The url of created asset'
+  browser_download_url:
+    description: 'The url for browser downloads'
+
+runs:
+  using: node20
+  main: dist/index.js

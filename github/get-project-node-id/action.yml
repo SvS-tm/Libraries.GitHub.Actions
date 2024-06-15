@@ -1,0 +1,21 @@
+name: 'Get project node id' 
+description: 'Retrieves project node id by its number in organization'
+inputs:
+
+  token:
+    required: true
+    description: 'GitHub token'
+  organization:
+    required: true
+    description: 'Organization login'
+  project:
+    required: true
+    description: "Project's number in organization"
+
+outputs:
+  node_id:
+    description: "Project's node_id"
+
+runs:
+  using: node20
+  main: dist/index.js

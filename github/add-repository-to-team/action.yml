@@ -1,0 +1,31 @@
+name: 'Add repository to team' 
+description: 'Adds repository to team with GitHub API'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'The account owner of the repository. The name is not case sensitive.'
+  repository:
+    required: true
+    description: 'The name of the repository without the .git extension. The name is not case sensitive.'
+  organization:
+    required: true
+    description: 'The organization name. The name is not case sensitive.'
+  team_slug:
+    required: true
+    description: 'The slug of the team name.'
+  permission:
+    description: |
+      The permission to grant the team on this repository. 
+      We accept the following permissions to be set: 
+      pull, triage, push, maintain, admin 
+      and you can also specify a custom repository role name, 
+      if the owning organization has defined any. 
+      If no permission is specified, the team's permission attribute 
+      will be used to determine what permission to grant the team on this repository.
+
+runs:
+  using: node20
+  main: dist/index.js

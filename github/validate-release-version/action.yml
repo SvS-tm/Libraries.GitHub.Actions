@@ -1,0 +1,21 @@
+name: 'Validate release version' 
+description: |
+  Checks if release already exists with tag that maches
+  package.json version field
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  repository:
+    required: true
+    description: 'Repository name'
+  path:
+    required: true
+    description: 'Path to directory with package.json'
+
+runs:
+  using: node20
+  main: dist/index.js

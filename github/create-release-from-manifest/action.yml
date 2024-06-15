@@ -1,0 +1,19 @@
+name: 'Create release from manifest' 
+description: 'Creates a new release based on release-manifest.json and assets'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  repository:
+    required: true
+    description: 'Repository name'
+  path:
+    required: true
+    description: 'Path to directory with release-manifest.json'
+
+runs:
+  using: node20
+  main: dist/index.js

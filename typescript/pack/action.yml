@@ -1,0 +1,9 @@
+name: test
+description: 'pnpm pack'
+runs:
+  using: composite
+  steps:
+  - name: pack
+    shell: bash
+    run: |
+      pnpm run pack

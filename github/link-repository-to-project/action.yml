@@ -1,0 +1,16 @@
+name: 'Link repository to project' 
+description: 'Links repository to project with GitHub GraphQL API'
+inputs:
+  repository:
+    required: true
+    description: 'Repository ID'
+  project:
+    required: true
+    description: 'Project ID'
+  token:
+    required: true
+    description: 'GitHub token'
+  
+runs:
+  using: node20
+  main: dist/index.js

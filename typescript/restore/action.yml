@@ -1,0 +1,17 @@
+name: restore
+description: 'restore dependencies'
+runs:
+  using: composite
+  steps:
+  - uses: actions/setup-node@v4
+    name: caching
+    with:
+      node-version: 21
+      cache: pnpm
+      cache-dependency-path: pnpm-lock.yaml
+    
+  - name: installing deps
+    shell: bash
+    run: |
+      pnpm i --frozen-lockfile
+  

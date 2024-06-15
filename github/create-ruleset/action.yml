@@ -1,0 +1,19 @@
+name: 'Create ruleset' 
+description: 'Creates ruleset in repository'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  repository:
+    required: true
+    description: 'Repository name'
+  ruleset_path:
+    required: true
+    description: 'Path to JSON with ruleset'
+  
+runs:
+  using: node20
+  main: dist/index.js

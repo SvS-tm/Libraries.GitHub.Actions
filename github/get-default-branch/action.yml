@@ -1,0 +1,19 @@
+name: 'Get the name of the default branch' 
+description: 'Returns the name (short name) of the default branch in repository'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  repository:
+    required: true
+    description: 'Repository name'
+outputs:
+  name:
+    description: 'The name (short name) of the default branch'
+  
+runs:
+  using: node20
+  main: dist/index.js

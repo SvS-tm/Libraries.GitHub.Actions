@@ -1,0 +1,22 @@
+name: 'Create branch' 
+description: 'Creates new branch from existing branch'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  owner: 
+    required: true
+    description: 'Owner of repository'
+  repository:
+    required: true
+    description: 'Repository name'
+  from:
+    required: true
+    description: 'Source branch'
+  name:
+    required: true
+    description: 'Name of the new branch'
+  
+runs:
+  using: node20
+  main: dist/index.js
