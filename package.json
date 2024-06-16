@@ -1,5 +1,5 @@
 {
-  "name": "github-actions",
+  "name": "@svs-team/github-actions",
   "type": "module",
   "scripts": {
     "build": "tsx build/build-all.ts"
