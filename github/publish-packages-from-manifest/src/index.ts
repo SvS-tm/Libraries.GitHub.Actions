@@ -51,6 +51,7 @@ await run<Inputs>
                                         stdio: 'inherit', 
                                         env: 
                                         {
+                                            ...process.env,
                                             GITHUB_TOKEN: inputs.token
                                         } 
                                     }
