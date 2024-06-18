@@ -80,6 +80,8 @@ importers:
 
   github/complete-open-pull-requests: {}
 
+  github/create-branch: {}
+
   github/create-release: {}
 
   github/create-release-from-manifest: {}
@@ -88,9 +90,13 @@ importers:
 
   github/download-latest-artifact: {}
 
+  github/get-default-branch: {}
+
   github/get-project-node-id: {}
 
   github/link-repository-to-project: {}
+
+  github/publish-packages-from-manifest: {}
 
   github/update-repository: {}
 
