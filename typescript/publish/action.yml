@@ -1,0 +1,13 @@
+name: publish
+description: 'pnpm publish'
+inputs:
+  path:
+    description: 'Path to package tarball' 
+runs:
+  using: composite
+
+  steps:
+  - name: publish
+    shell: bash
+    run: |
+      pnpm publish ${{ inputs.path }}
