@@ -52,8 +52,7 @@ await run<Inputs>
                 owner: inputs.owner,
                 repo: inputs.repository,
                 tag_name: meta.version,
-                generate_release_notes: true,
-                draft: true
+                generate_release_notes: true
             }
         );
 
