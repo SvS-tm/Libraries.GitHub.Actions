@@ -12,13 +12,6 @@ type Inputs =
     path: string;
 };
 
-type PackageMeta = 
-{
-    name: string;
-    version: string;
-    author: string;
-};
-
 type Asset = 
 {
     path: string;
@@ -51,7 +44,17 @@ await run<Inputs>
                         {
                             try
                             {
-                                execSync(`pnpm publish ${asset.path}`, { stdio: 'inherit' });
+                                execSync
+                                (
+                                    `pnpm publish ${asset.path}`, 
+                                    { 
+                                        stdio: 'inherit', 
+                                        env: 
+                                        {
+                                            GITHUB_TOKEN: inputs.token
+                                        } 
+                                    }
+                                );
                             }
                             catch(error)
                             {
