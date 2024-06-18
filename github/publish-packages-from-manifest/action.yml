@@ -1,0 +1,13 @@
+name: 'Publishes all packages from release manifest' 
+description: 'Calls pnpm publish for every asset with tag "package"'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+  path:
+    required: true
+    description: 'Path to directory with release-manifest.json'
+
+runs:
+  using: node20
+  main: dist/index.js
