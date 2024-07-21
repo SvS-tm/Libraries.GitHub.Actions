@@ -68,12 +68,18 @@ await run<Inputs>
 
         for(const asset of manifest.assets)
         {
+            const path = join(inputs.path, asset.path);
+            
+            info(`Uploading asset: ${path}`);
+
+            const buffer = await readFile(path);
+
             const response = await octokit.rest.repos.uploadReleaseAsset
             (
                 {
                     owner: inputs.owner,
                     repo: inputs.repository,
-                    data: `@${join(inputs.path, asset.path)}`,
+                    data: buffer as unknown as string, //https://github.com/octokit/octokit.js/discussions/2087
                     release_id: createReleaseResponse.data.id,
                     name: asset.name,
                     label: asset.label
