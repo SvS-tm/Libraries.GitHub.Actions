@@ -44,7 +44,7 @@ await run<Inputs>
                         {
                             try
                             {
-                                const command = `pnpm publish ${asset.path}`;
+                                const command = `npm publish ${asset.path}`;
 
                                 info(`Publishing tarball: '${command}'`);
 
