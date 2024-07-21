@@ -13,6 +13,14 @@ inputs:
   path:
     required: true
     description: 'Path to directory with release-manifest.json'
+  target_commitish:
+    required: false
+    default: ''
+    description: |
+      Specifies the commitish value that determines where the Git tag is created from. 
+      Can be any branch or commit SHA. 
+      Unused if the Git tag already exists. 
+      Default: the repository's default branch.
 
 runs:
   using: node20
