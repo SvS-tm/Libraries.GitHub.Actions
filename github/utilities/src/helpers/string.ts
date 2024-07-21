@@ -1,5 +1,5 @@
 import { StringLike } from "../system/types/string-like";
-import { isNotEmpty } from "./guards";
+import { isEmpty, isNotEmpty } from "./guards";
 
 export const getString = (value: StringLike | undefined | null) =>
 {
@@ -36,3 +36,8 @@ export const getString = (value: StringLike | undefined | null) =>
 
     return undefined;
 };
+
+export function isEmptyOrWhitespace(value: string | null | undefined): boolean
+{
+    return isEmpty(value) || !value.length || /^[\s\t]+$/.test(value);
+}

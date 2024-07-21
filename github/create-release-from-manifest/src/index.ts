@@ -3,6 +3,7 @@ import { getOctokit } from "@actions/github";
 import { run } from "@github/utilities/src/helpers/github-core";
 import { isSuccessStatusCode } from "@github/utilities/src/helpers/http";
 import { serializeObject } from "@github/utilities/src/helpers/serialization";
+import { isEmptyOrWhitespace } from "@github/utilities/src/helpers/string";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
@@ -12,6 +13,7 @@ type Inputs =
     repository: string;
     token: string;
     path: string;
+    target_commitish: string;
 };
 
 type PackageMeta = 
@@ -52,7 +54,10 @@ await run<Inputs>
                 owner: inputs.owner,
                 repo: inputs.repository,
                 tag_name: meta.version,
-                generate_release_notes: true
+                generate_release_notes: true,
+                target_commitish: isEmptyOrWhitespace(inputs.target_commitish) 
+                    ? undefined 
+                    : inputs.target_commitish
             }
         );
 
