@@ -44,16 +44,20 @@ await run<Inputs>
                         {
                             try
                             {
+                                const command = `pnpm publish ${asset.path}`;
+
+                                info(`Publishing tarball: '${command}'`);
+
                                 execSync
                                 (
-                                    `pnpm publish ${asset.path}`, 
+                                    command, 
                                     { 
                                         stdio: 'inherit', 
-                                        env: 
+                                        env:
                                         {
                                             ...process.env,
                                             GITHUB_TOKEN: inputs.token
-                                        } 
+                                        }
                                     }
                                 );
                             }
