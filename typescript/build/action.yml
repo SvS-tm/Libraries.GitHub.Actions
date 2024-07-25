@@ -1,9 +1,16 @@
 name: build
 description: 'pnpm build'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+
 runs:
   using: composite
   steps:
   - name: build
     shell: bash
+    env:
+      GITHUB_TOKEN: ${{ inputs.token }}
     run: |
       pnpm build

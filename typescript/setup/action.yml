@@ -1,9 +1,16 @@
 name: setup
 description: 'prepare environment'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+
 runs:
   using: composite
   steps:
     - name: install pnpm
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
       run: |
         npm i pnpm -g
