@@ -1,5 +1,10 @@
 name: restore
 description: 'restore dependencies'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+
 runs:
   using: composite
   steps:
@@ -12,6 +17,8 @@ runs:
     
   - name: installing deps
     shell: bash
+    env:
+      GITHUB_TOKEN: ${{ inputs.token }}
     run: |
       pnpm i --frozen-lockfile
   

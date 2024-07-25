@@ -1,9 +1,16 @@
 name: test
 description: 'pnpm pack'
+inputs:
+  token:
+    required: true
+    description: 'GitHub token'
+
 runs:
   using: composite
   steps:
   - name: pack
     shell: bash
+    env:
+      GITHUB_TOKEN: ${{ inputs.token }}
     run: |
       pnpm run pack
